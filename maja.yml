@@ -1,0 +1,12 @@
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  tasks:
+   - name: install to httpd
+     yum:
+       name: httpd
+       state: latest
+   - name: going to start httpd
+     service:
+       name: httpd
+       state: started
